@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import {Logo, MedicationCard, NavBar, Page, DashboardBackground,
+import {Logo,  NavBar,  DashboardBackground,
         ProfileContainer, LogoutButton, ProfileIcon,
         AddPatientButton, PatientList, ListOfMedicine, MarKBox, DeleteButton, PatientButton, MedBox,  } from './DesignLayout';
 import AddMedication from './AddMedication';
@@ -14,7 +14,6 @@ function Dashboard({ user, setUser }) {
     console.log(user)
   const navigate = useNavigate()
   const [medications, setMedications] = useState([]);
-  const [adherence, setAdherence] = useState(0);
   const [patientsList, setPatientsList] = useState([]);
   const [userId, setUserId] = useState("")
 
@@ -25,9 +24,7 @@ function Dashboard({ user, setUser }) {
     console.log(res)
     setMedications(res.data);
 
-   /* const total = res.data.length;
-    const taken = res.data.filter(med => med.taken === 1).length;
-    setAdherence(total === 0 ? 0 : Math.round((taken / total) * 100)); */
+  
   };
 
   const markAsTaken = async (medId) => {
@@ -142,28 +139,6 @@ function Dashboard({ user, setUser }) {
   default:
     return null;
 }
-
-  /*(
-    <Page>
-      <h2>Welcome, {user.username}</h2>
-      <h3>Adherence: {adherence}%</h3>
-
-      {medications.map(med => (
-        <MedicationCard key={med.id}>
-          <p><strong>{med.name}</strong> - {med.dosage}</p>
-          <p>Frequency: {med.frequency}</p>
-          
-          {!med.taken && (
-            <button onClick={() => markAsTaken(med.id)}>Mark as Taken</button>
-          )}
-        </MedicationCard>
-      ))}
-      <AddMedication userId={user.id} onAdd={fetchMedications} />
-    </Page>
-     <MedicineList>
-        {medications.map(each => (<li key={each.id}><MarKBox type='checkbox' /> <MedcineTitle>{each.name}</MedcineTitle></li>))}
-      </MedicineList>
-  ); */
 }
 
 export default Dashboard;

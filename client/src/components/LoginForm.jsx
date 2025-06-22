@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { BackgroundImage, FormBox, InputBox, InputContainer, Label, SignUpButton, LoginButton, FormMessage, Logo } from '../components/DesignLayout';
@@ -17,7 +17,7 @@ function LoginForm({onLogin}) {
   const handleSubmit = async event => {
     event.preventDefault();
     try {
-      const response = await axios.post(`${BASE_URL}/api/auth/login`, loginData, {
+       await axios.post(`${BASE_URL}/api/auth/login`, loginData, {
         withCredentials: true
       });
        const userRes = await axios.get(`${BASE_URL}/api/auth/me`, {

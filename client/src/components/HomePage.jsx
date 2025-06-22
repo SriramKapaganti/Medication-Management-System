@@ -18,7 +18,7 @@ function Homepage(onLogin) {
           }
         })
         .catch(() => {
-          // Not logged in — do nothing
+          console.log("error")
         });
     }, []);
   return (
