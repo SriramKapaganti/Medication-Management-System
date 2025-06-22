@@ -7,9 +7,10 @@ import {
 } from '../components/DesignLayout';
 
 function Homepage(onLogin) {
+  const BASE_URL = "https://medication-management-system-42gd.onrender.com";
   const navigate = useNavigate();
   useEffect(() => {
-      axios.get('http://localhost:5000/api/auth/me', { withCredentials: true })
+      axios.get(`${BASE_URL}/api/auth/me`, { withCredentials: true })
         .then(response => {
           if (response.data?.user) {
             onLogin(response.data.user);

@@ -12,9 +12,10 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function App() {
   const [user, setUser] = useState(null);
+  const BASE_URL = "https://medication-management-system-42gd.onrender.com";
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/auth/me', { withCredentials: true })
+    axios.get(`${BASE_URL}/api/auth/me`, { withCredentials: true })
       .then(res => setUser(res.data.user))
       .catch(() => setUser(null));
   }, []);
@@ -22,7 +23,6 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Public routes - redirect if already logged in */}
         <Route exact path="/" element={
           <RedirectIfLoggedIn user={user}>
             <HomePage />

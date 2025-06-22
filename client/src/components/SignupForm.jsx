@@ -6,6 +6,7 @@ import {
 } from './DesignLayout';
 
 function SignUpForm() {
+    const BASE_URL = "https://medication-management-system-42gd.onrender.com";
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -33,7 +34,7 @@ function SignUpForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/signup', formData, {
+      const res = await axios.post(`${BASE_URL}/api/auth/signup`, formData, {
         withCredentials: true
       });
       setMessage(res.data.message);
@@ -43,7 +44,7 @@ function SignUpForm() {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/auth/caretaker', {
+    axios.get(`${BASE_URL}/api/auth/caretaker`, {
       withCredentials: true
     })
     .then(res => setListOfCareTaker(res.data.caretakers))

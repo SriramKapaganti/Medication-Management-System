@@ -4,6 +4,7 @@ import axios from 'axios';
 import { BackgroundImage, FormBox, InputBox, InputContainer, Label, SignUpButton, LoginButton, FormMessage, Logo } from '../components/DesignLayout';
 
 function LoginForm({onLogin}) {
+  const BASE_URL = "https://medication-management-system-42gd.onrender.com";
   const [loginData, setLoginData] = useState({ username: '', password: '' });
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
@@ -16,10 +17,10 @@ function LoginForm({onLogin}) {
   const handleSubmit = async event => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', loginData, {
+      const response = await axios.post(`${BASE_URL}/api/auth/login`, loginData, {
         withCredentials: true
       });
-       const userRes = await axios.get('http://localhost:5000/api/auth/me', {
+       const userRes = await axios.get(`${BASE_URL}/api/auth/me`, {
         withCredentials: true
       });
 

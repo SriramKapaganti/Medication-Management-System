@@ -2,13 +2,14 @@ import {useState} from 'react'
 import axios from 'axios';
 
 function AddMedication({ userId, fetchMedications }) {
+  const BASE_URL = "https://medication-management-system-42gd.onrender.com";
   const [data, setData] = useState({ name: '', dosage: '', frequency: '' });
 
   const handleChange = e => setData({ ...data, [e.target.name]: e.target.value });
 
   const handleSubmit = async e => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/medications', { ...data, user_id: userId });
+    await axios.post(`${BASE_URL}/api/medications`, { ...data, user_id: userId });
     fetchMedications(userId)
   };
 

@@ -10,6 +10,7 @@ import AddMedication from './AddMedication';
 
 
 function Dashboard({ user, setUser }) {
+  const BASE_URL = "https://medication-management-system-42gd.onrender.com";
     console.log(user)
   const navigate = useNavigate()
   const [medications, setMedications] = useState([]);
@@ -20,7 +21,7 @@ function Dashboard({ user, setUser }) {
   const fetchMedications = async (user_id) => {
     console.log(user_id)
     setUserId(user_id)
-    const res = await axios.get(`http://localhost:5000/api/medications/${user_id}`);
+    const res = await axios.get(`${BASE_URL}/api/medications/${user_id}`);
     console.log(res)
     setMedications(res.data);
 
@@ -30,13 +31,13 @@ function Dashboard({ user, setUser }) {
   };
 
   const markAsTaken = async (medId) => {
-  await axios.post(`http://localhost:5000/api/medications/${medId}/log`);
+  await axios.post(`${BASE_URL}/api/medications/${medId}/log`);
   fetchMedications(userId);
 };
 
 
   const LogoutUser = () => {
-    axios.post("http://localhost:5000/api/auth/logout",{}, {withCredentials:true})
+     axios.post(`${BASE_URL}/api/auth/logout`, {}, { withCredentials: true })
     .then(res => {console.log(res.data.message)
       setUser(null)
       navigate('/login')
@@ -45,7 +46,7 @@ function Dashboard({ user, setUser }) {
   }
 
   const onDelete = async (medId) => {
-    try{await axios.delete(`http://localhost:5000/api/medications/${medId}`)
+    try{await axios.delete(`${BASE_URL}/api/medications/${medId}`);
     fetchMedications(userId)}
     catch(err){
       console.error('Error deleting medication:', err);
@@ -56,7 +57,7 @@ function Dashboard({ user, setUser }) {
     if (user.role === 'patient') {
     fetchMedications(user.id);
   }
-    axios.get(`http://localhost:5000/api/auth/patientList/${user.id}`, {
+    axios.get(`${BASE_URL}/api/auth/patientList/${user.id}`, {
       withCredentials: true
     }).then(res => setPatientsList(res.data.patientList))
     .catch(err => console.error('Error fetching patientList:', err))
