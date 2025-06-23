@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { BASE_URL } from '../api/config';
 import {
   BackgroundImage, LoginButton, SignUpButton,
   NavBar, ActionContainer, Logo, About, Heading, AboutPage
 } from '../components/DesignLayout';
 
 function Homepage(onLogin) {
-  const BASE_URL = "/api"; 
   const navigate = useNavigate();
   useEffect(() => {
       axios.get(`${BASE_URL}/api/auth/me`, { withCredentials: true })

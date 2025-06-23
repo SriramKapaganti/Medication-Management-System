@@ -1,12 +1,12 @@
 import  { useEffect, useState } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../api/config';
 import {
   BackgroundImage, FormBox, Logo, InputContainer, Label, InputBox,
   SelectBox, OptionBox, SignUpButton, FormMessage
 } from './DesignLayout';
 
 function SignUpForm() {
-    const BASE_URL = "/api";
   const [formData, setFormData] = useState({
     username: '',
     password: '',

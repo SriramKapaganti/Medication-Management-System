@@ -6,11 +6,11 @@ import {Logo,  NavBar,  DashboardBackground,
         ProfileContainer, LogoutButton, ProfileIcon,
         AddPatientButton, PatientList, ListOfMedicine, MarKBox, DeleteButton, PatientButton, MedBox,  } from './DesignLayout';
 import AddMedication from './AddMedication';
+import { BASE_URL } from '../api/config';
 
 
 
 function Dashboard({ user, setUser }) {
-  const BASE_URL = "/api";     
   const navigate = useNavigate()
   const [medications, setMedications] = useState([]);
   const [patientsList, setPatientsList] = useState([]);

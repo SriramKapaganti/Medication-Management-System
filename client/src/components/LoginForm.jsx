@@ -1,10 +1,10 @@
 import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { BASE_URL } from '../api/config';
 import { BackgroundImage, FormBox, InputBox, InputContainer, Label, SignUpButton, LoginButton, FormMessage, Logo } from '../components/DesignLayout';
 
 function LoginForm({onLogin}) {
-  const BASE_URL = "/api"; 
   const [loginData, setLoginData] = useState({ username: '', password: '' });
   const [message, setMessage] = useState('');
   const navigate = useNavigate();

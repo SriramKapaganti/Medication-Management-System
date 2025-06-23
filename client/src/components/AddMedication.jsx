@@ -1,8 +1,9 @@
 import {useState} from 'react'
 import axios from 'axios';
+import { BASE_URL } from '../api/config';
+
 
 function AddMedication({ userId, fetchMedications }) {
-  const BASE_URL = "/api"; 
   const [data, setData] = useState({ name: '', dosage: '', frequency: '' });
 
   const handleChange = e => setData({ ...data, [e.target.name]: e.target.value });
