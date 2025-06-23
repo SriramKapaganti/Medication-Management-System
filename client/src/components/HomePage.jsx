@@ -7,7 +7,7 @@ import {
 } from '../components/DesignLayout';
 
 function Homepage(onLogin) {
-  const BASE_URL = "https://medication-management-system-42gd.onrender.com";
+  const BASE_URL = "/api"; 
   const navigate = useNavigate();
   useEffect(() => {
       axios.get(`${BASE_URL}/api/auth/me`, { withCredentials: true })

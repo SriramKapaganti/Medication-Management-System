@@ -14,8 +14,8 @@ function App() {
   const [user, setUser] = useState(null);
   const BASE_URL = "https://medication-management-system-42gd.onrender.com";
 
-  useEffect(() => {
-    axios.get(`${BASE_URL}/api/auth/me`, { withCredentials: true })
+  useEffect( () => {
+     axios.get(`${BASE_URL}/api/auth/me`, { withCredentials: true })
       .then(res => setUser(res.data.user))
       .catch(() => setUser(null));
   }, []);

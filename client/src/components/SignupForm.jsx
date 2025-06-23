@@ -6,7 +6,7 @@ import {
 } from './DesignLayout';
 
 function SignUpForm() {
-    const BASE_URL = "https://medication-management-system-42gd.onrender.com";
+    const BASE_URL = "/api";
   const [formData, setFormData] = useState({
     username: '',
     password: '',

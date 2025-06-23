@@ -4,7 +4,7 @@ import axios from 'axios';
 import { BackgroundImage, FormBox, InputBox, InputContainer, Label, SignUpButton, LoginButton, FormMessage, Logo } from '../components/DesignLayout';
 
 function LoginForm({onLogin}) {
-  const BASE_URL = "https://medication-management-system-42gd.onrender.com";
+  const BASE_URL = "/api"; 
   const [loginData, setLoginData] = useState({ username: '', password: '' });
   const [message, setMessage] = useState('');
   const navigate = useNavigate();

@@ -10,8 +10,7 @@ import AddMedication from './AddMedication';
 
 
 function Dashboard({ user, setUser }) {
-  const BASE_URL = "https://medication-management-system-42gd.onrender.com";
-    console.log(user)
+  const BASE_URL = "/api";     
   const navigate = useNavigate()
   const [medications, setMedications] = useState([]);
   const [patientsList, setPatientsList] = useState([]);
