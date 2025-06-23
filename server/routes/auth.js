@@ -132,7 +132,12 @@ router.post('/logout', (req, res) => {
   res.json({ message: 'Logged out successfully' });
 });
 
+//testing 
 
+router.get('/check-cookie', (req, res) => {
+  console.log('Cookies:', req.cookies);
+  res.json({ cookies: req.cookies });
+});
 
 module.exports = router;
 
