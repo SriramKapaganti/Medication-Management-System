@@ -82,8 +82,8 @@ router.post('/login', (req, res) => {
     const token = jwt.sign(user, JWT_SECRET, { expiresIn: '1d' });
     res.cookie('token', token, {
       httpOnly: true,
-      secure: false,
-      sameSite: 'Lax',
+      secure: true,
+      sameSite: 'none',
       maxAge: 86400000
     });
     res.json({ message: 'Login successful', user });
@@ -126,8 +126,8 @@ router.get('/patientList/:user_id', (req, res)=>{
 router.post('/logout', (req, res) => {
   res.clearCookie('token', {
     httpOnly: true,
-    secure: false,
-    sameSite: 'Lax'
+    secure: true,
+    sameSite: 'none'
   });
   res.json({ message: 'Logged out successfully' });
 });
