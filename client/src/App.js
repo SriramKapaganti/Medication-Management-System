@@ -18,6 +18,7 @@ function App() {
      axios.get(`${BASE_URL}/api/auth/me`, { withCredentials: true })
       .then(res => setUser(res.data.user))
       .catch(() => setUser(null));
+      console.log("Triggering redeploy");
   }, []);
 
   return (
