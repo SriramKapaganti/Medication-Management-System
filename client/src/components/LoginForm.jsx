@@ -34,7 +34,7 @@ function LoginForm({onLogin}) {
   return (
     <BackgroundImage>
       <FormBox onSubmit={handleSubmit}>
-        <Logo src='/Logo.png' alt='Logo' />
+        <Logo src='/logo.png' alt='Logo' />
         <InputContainer>
           <Label htmlFor="username">Username</Label>
           <InputBox type="text" id="username" name="username" onChange={handleChange} />
