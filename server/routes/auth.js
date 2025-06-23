@@ -93,8 +93,8 @@ router.post('/login', (req, res) => {
 // CHECK USER INFO
 router.get('/me', (req, res) => {
   const token = req.cookies.token;
-  if (!token) return res.status(401).json({ error: 'Not logged in' });
-
+  if (!token) {return res.status(401).json({ error: 'Not logged in' });
+}
   jwt.verify(token, JWT_SECRET, (err, user) => {
     if (err) return res.status(403).json({ error: 'Token invalid' });
     res.json({ user });
