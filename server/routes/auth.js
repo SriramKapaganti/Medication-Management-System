@@ -28,8 +28,8 @@ router.post('/signup', (req, res) => {
 
         res.cookie('token', token, {
           httpOnly: true,
-          secure: false,
-          sameSite: 'Lax',
+          secure: true,
+          sameSite: 'none',
           maxAge: 86400000
         });
 
@@ -51,8 +51,8 @@ router.post('/signup', (req, res) => {
 
         res.cookie('token', token, {
           httpOnly: true,
-          secure: false,
-          sameSite: 'Lax',
+          secure: true,
+          sameSite: 'none',
           maxAge: 86400000
         });
 
